@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.teamtodo104535" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>team-todo</name>
+<widget id="com.borunov.sharedspendings" version="0.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>Shared Spendings</name>
   <description>
-        An Ionic Framework and Cordova project.
+        Shared Spendings Managment
     </description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">
-      Ionic Framework Team
-    </author>
+  <author email="yuri@borunov.com" href="https://github.com/yborunov">
+      Yuri Borunov
+  </author>
   <content src="index.html"/>
   <access origin="*"/>
   <preference name="webviewbounce" value="false"/>
@@ -16,4 +16,11 @@
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>
+  <platform name="android">
+    <icon src="res/android/mipmap-mdpi/ic_launcher.png" density="mdpi" />
+    <icon src="res/android/mipmap-hdpi/ic_launcher.png" density="hdpi" />
+    <icon src="res/android/mipmap-xhdpi/ic_launcher.png" density="xhdpi" />
+    <icon src="res/android/mipmap-xxhdpi/ic_launcher.png" density="xxhdpi" />
+    <icon src="res/android/mipmap-xxxhdpi/ic_launcher.png" density="xxxhdpi" />
+  </platform>
 </widget>
