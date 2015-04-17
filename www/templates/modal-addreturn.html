@@ -1,0 +1,27 @@
+<ion-modal-view>
+	<ion-header-bar>
+	  <h1 class="title">Add cash return</h1>
+	</ion-header-bar>
+	<ion-content>
+		<form ng-submit="addReturn()">
+	  <label class="item item-input">
+	    <input type="number" placeholder="$ returned" ng-model="newReturn.amount">
+	  </label>
+	  <label class="item item-input">
+	    <textarea placeholder="Comments" ng-model="newReturn.comment"></textarea>
+	  </label>
+
+     <ion-list>
+      <ion-item class="item-divider">
+        Select a friend who paid you back
+      </ion-item>
+      </ion-list>
+      <ion-radio ng-model="newReturn.friendEmail" ng-value="friend.email" ng-repeat="friend in friends" >
+        {{friend.name}}
+      </ion-radio>
+		
+	  <button type="submit" class="button button-block button-positive">Save</button>
+	  </form>
+	  <button class="button button-block button-dark" ng-click="returnModal.hide()">Close</button>
+	</ion-content>
+</ion-modal-view>
