@@ -1,20 +1,30 @@
-<ion-view title="My Expenses">
+<ion-view title="Dashboard">
+  <ion-nav-buttons side="right">
+    <button class="button button-icon-right button-icon ion-plus" ng-click="openExpenseModal()"></button>
+  </ion-nav-buttons>
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="expense in expenses|filter:user.password.email" type="item-text-wrap">
-        {{expense.label}}
-        <span class="badge badge-balanced">{{expense.cost}}</span>
+      <ion-item class="item-icon-left">
+        I owe
+        <i class="icon ion-social-usd"></i>
+        <span class="badge badge-assertive">{{totalIOwe | currency}}</span>
+      </ion-item>
+      <ion-item class="item-icon-left">
+        I'm owed
+        <i class="icon ion-social-usd"></i>
+        <span class="badge badge-positive">{{totalTheyOweMe | currency}}</span>
       </ion-item>
     </ion-list>
-      <div class="card assertive">
-          <div class="item item-text-wrap">
-              Total Spent <span class="badge badge-positive">{{getTotal()}}</span>
-          </div>
-      </div>
+     <ion-list>
+      <ion-item class="item-divider">
+        Friends
+      </ion-item>
+      <ion-item ng-repeat="friend in friends" class="item-icon-left" ng-click="showFriend(friend)">
+        <i class="icon ion-person"></i>
+        {{friend.name}}
+        <span class="item-note">owes me: {{getFriendTotalDebt(friend) | currency}}</span>
+      </ion-item>
+    </ion-list>
+
   </ion-content>
-  <ion-footer-bar>
-      <input ng-model='label' type='text' id='labelInput'  placeholder='Type a new expense...'>
-      <input ng-model='cost' type="number" id="costInput" placeholder='$'>
-      <button class="button icon-left ion-plus" ng-click="addExpense($event)">Add</button>
-  </ion-footer-bar>
 </ion-view>
