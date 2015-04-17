@@ -5,11 +5,11 @@
 -->
 <ion-tabs class="tabs-icon-top">
   <!-- My Tab -->
-  <ion-tab title="My Expense" icon="icon ion-log-in" href="#/tab/dash">
+  <ion-tab title="Summary" icon="icon ion-home" href="#/tab/dash" hidden="{{authUser?'false':'true'}}">
     <ion-nav-view name="tab-dash"></ion-nav-view>
   </ion-tab>
   <!-- Friends Tab -->
-  <ion-tab title="Roomie's" icon="icon ion-log-out" href="#/tab/friends">
+  <ion-tab title="Friends" icon="icon ion-person" href="#/tab/friends" hidden="{{authUser?'false':'true'}}">
     <ion-nav-view name="tab-friends"></ion-nav-view>
   </ion-tab>
   <!-- Account -->
