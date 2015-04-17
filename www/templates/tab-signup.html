@@ -1,0 +1,25 @@
+<ion-view title="Sign up">
+  <ion-content>
+    <div class="list">
+      <form ng-submit="signup(name, em, pwd, pwd2)">
+        <label class="item item-input">
+          <span class="input-label">Name</span>
+          <input type="text" ng-model="name"/>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Email</span>
+          <input type="text" ng-model="em"/>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Password</span>
+          <input type="password" ng-model="pwd"/>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Confirm Password</span>
+          <input type="password" ng-model="pwd2"/>
+        </label>
+        <button type="submit" class="button button-block button-positive">Create account</button>
+      </form>
+    </div>
+  </ion-content>
+</ion-view>
