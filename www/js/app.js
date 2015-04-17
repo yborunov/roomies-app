@@ -7,8 +7,9 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'firebase'])
 
-.run(function($ionicPlatform) {
+.run(function ($rootScope, $ionicPlatform, fireBaseData) {
   $ionicPlatform.ready(function() {
+    var user;
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if(window.cordova && window.cordova.plugins.Keyboard) {
@@ -18,10 +19,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+
+    fireBaseData.ref().onAuth(function (authData) {
+      $rootScope.authUser = authData;
+    });
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function ($stateProvider, $urlRouterProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -58,6 +63,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       }
     })
 
+    .state('tab.friend', {
+      url: '/friend',
+      views: {
+        'tab-friends': {
+          templateUrl: 'templates/tab-friend.html',
+          controller: 'FriendCtrl'
+        }
+      }
+    })
+
     .state('tab.account', {
       url: '/account',
       views: {
@@ -66,8 +81,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
           controller: 'AccountCtrl'
         }
       }
-    });
+    })
+
+    .state('tab.signup', {
+      url: '/signup',
+      views: {
+        'tab-account': {
+          templateUrl: 'templates/tab-signup.html',
+          controller: 'SignupCtrl'
+        }
+      }
+    });;
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/tab/account');
 });
