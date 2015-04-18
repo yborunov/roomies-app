@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.borunov.sharedspendings" version="0.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.borunov.sharedspendings" version="0.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>Shared Spendings</name>
   <description>
-        Shared Spendings Managment
+        Shared Spendings Management
     </description>
   <author email="yuri@borunov.com" href="https://github.com/yborunov">
       Yuri Borunov
