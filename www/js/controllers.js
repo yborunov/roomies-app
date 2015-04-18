@@ -193,12 +193,20 @@ angular.module('starter.controllers', [])
         }
     };
 })
-.controller('FriendCtrl', function ($rootScope, $scope, $firebaseArray, fireBaseData, $state, $ionicModal, $ionicPopup, friends) {
+.controller('FriendCtrl', function ($rootScope, $scope, fireBaseData, $state, $ionicModal, $ionicPopup, $ionicHistory, $ionicNavBarDelegate, friends, expenses) {
     $scope.friend = $rootScope.selectedFriend;
     if (!$rootScope.selectedFriend) {
+        $ionicHistory.nextViewOptions({
+            historyRoot: true,
+            disableAnimate: true
+        });
         $state.go('tab.friends');
     }
-    $scope.expenses = $firebaseArray(fireBaseData.refExpenses());
+    $scope.expenses = expenses.list;
+    $scope.expenses.$loaded().then(function () {
+        $scope.totalIOweHim = $scope.getTotalIOweHim();
+        $scope.totalHeOwesMe = $scope.getTotalHeOwesMe();
+    });
     $scope.expenses.$watch(function () {
         $scope.totalIOweHim = $scope.getTotalIOweHim();
         $scope.totalHeOwesMe = $scope.getTotalHeOwesMe();
