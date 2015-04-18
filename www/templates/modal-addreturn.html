@@ -5,7 +5,7 @@
 	<ion-content>
 		<form ng-submit="addReturn()">
 	  <label class="item item-input">
-	    <input type="number" placeholder="$ returned" ng-model="newReturn.amount">
+	    <input type="number" step="0.01" min="0.01" placeholder="$ returned" ng-model="newReturn.amount">
 	  </label>
 	  <label class="item item-input">
 	    <textarea placeholder="Comments" ng-model="newReturn.comment"></textarea>
