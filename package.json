@@ -1,7 +1,7 @@
 {
-  "name": "team-todo",
+  "name": "shared-spendings-app",
   "version": "1.0.0",
-  "description": "team-todo: An Ionic project",
+  "description": "Shared Spendings Management",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^0.7.1",
